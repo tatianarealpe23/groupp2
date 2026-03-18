@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones Web - IEMMMRP</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<div class="luz" id="luz"></div>
+
+<header class="header" id="header">
+    <div class="header-content">
+        <img src="logo.png" class="logo">
+
+        <div class="textos">
+            <h1>Institución Educativa Manuel María Mosquera</h1>
+            <h2>Sede Educativa</h2>
+            <p class="titulo">Publicaciones Web - Proyecto Académico 2026</p>
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <section class="card reveal">
+        <h2>Presentación del Proyecto</h2>
+        <p>
+            El presente entorno digital ha sido desarrollado como parte del proceso formativo,
+            integrando conocimientos en desarrollo web mediante HTML y CSS. Este espacio busca
+            fortalecer las competencias tecnológicas, promoviendo la comunicación, el acceso a la
+            información y el uso responsable de herramientas digitales en el contexto educativo.
+        </p>
+    </section>
+
+    <section class="card reveal">
+        <h2>Documento Académico</h2>
+
+        <iframe src="info.pdf"></iframe>
+
+        <br><br>
+
+        <a href="info.pdf" target="_blank" class="btn">
+            Visualizar documento completo
+        </a>
+    </section>
+
+    <section class="card reveal">
+        <h2>Recurso Audiovisual</h2>
+
+        <div class="video">
+            <iframe 
+                src="https://www.youtube.com/embed/HcWPIgKj2As"
+                allowfullscreen>
+            </iframe>
+        </div>
+
+        <p>
+            El recurso audiovisual complementa la información presentada, permitiendo una mejor
+            comprensión de los contenidos a través de un formato dinámico e interactivo.
+        </p>
+    </section>
+
+</main>
+
+<footer class="footer">
+    <p>Elaborado por estudiantes - Grado 11</p>
+    <p>Institución Educativa Manuel María Mosquera</p>
+    <p>Año 2026</p>
+
+    <a href="https://iemmmrip.edu.co/index.php" class="btn">
+        Volver a la página principal
+    </a>
+</footer>
+
+<script>
+window.addEventListener("scroll", () => {
+    document.getElementById("header")
+    .classList.toggle("shrink", window.scrollY > 50);
+});
+
+const reveals = document.querySelectorAll(".reveal");
+
+window.addEventListener("scroll", () => {
+    reveals.forEach(el => {
+        if (el.getBoundingClientRect().top < window.innerHeight - 100) {
+            el.classList.add("active");
+        }
+    });
+});
+
+document.addEventListener("mousemove", (e) => {
+    const luz = document.getElementById("luz");
+    luz.style.left = (e.clientX - 150) + "px";
+    luz.style.top = (e.clientY - 150) + "px";
+});
+</script>
+
+</body>
+</html>

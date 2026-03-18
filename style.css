@@ -1,0 +1,179 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* FONDO PREMIUM */
+body {
+    font-family: 'Segoe UI', sans-serif;
+    color: white;
+
+    background: linear-gradient(-45deg, #1c3f94, #2e8b57, #f2c300);
+    background-size: 400% 400%;
+    animation: fondo 12s ease infinite;
+}
+
+@keyframes fondo {
+    0% {background-position: 0%}
+    50% {background-position: 100%}
+    100% {background-position: 0%}
+}
+
+/* LUZ */
+.luz {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    background: radial-gradient(circle, rgba(255,255,255,0.25), transparent);
+    filter: blur(80px);
+    pointer-events: none;
+}
+
+/* HEADER */
+.header {
+    position: sticky;
+    top: 0;
+    padding: 15px;
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(20px);
+    transition: 0.3s;
+}
+
+.header.shrink {
+    padding: 8px;
+}
+
+/* HEADER CONTENIDO */
+.header-content {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.logo {
+    width: 70px;
+    transition: 0.3s;
+}
+
+.header.shrink .logo {
+    width: 45px;
+}
+
+/* TEXTOS */
+.textos h1 {
+    font-size: 18px;
+}
+
+.titulo {
+    font-size: 14px;
+    opacity: 0.8;
+}
+
+/* CONTENIDO */
+.container {
+    padding: 30px;
+}
+
+/* TARJETAS */
+.card {
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(25px);
+    border-radius: 20px;
+    padding: 25px;
+    margin-bottom: 25px;
+
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+
+    transform: translateY(40px);
+    opacity: 0;
+    transition: 0.6s;
+}
+
+.card.active {
+    transform: translateY(0);
+    opacity: 1;
+}
+
+/* PDF */
+iframe {
+    width: 100%;
+    height: 500px;
+    border: none;
+    border-radius: 15px;
+}
+
+/* VIDEO */
+.video iframe {
+    height: 420px;
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 25px;
+}
+
+/* BOTÓN LIQUID GLASS */
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 25px;
+    border-radius: 50px;
+
+    color: white;
+    text-decoration: none;
+
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(15px);
+
+    overflow: hidden;
+    transition: 0.4s;
+}
+
+/* EFECTO BRILLO */
+.btn::before {
+    content: "";
+    position: absolute;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(
+        120deg,
+        transparent,
+        rgba(255,255,255,0.6),
+        transparent
+    );
+    transform: rotate(25deg);
+    top: -100%;
+    left: -100%;
+}
+
+.btn:hover::before {
+    animation: brillo 0.8s;
+}
+
+@keyframes brillo {
+    0% {left: -100%;}
+    100% {left: 100%;}
+}
+
+.btn:hover {
+    transform: scale(1.08);
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+
+    .header-content {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    iframe {
+        height: 300px;
+    }
+
+    .video iframe {
+        height: 250px;
+    }
+}
