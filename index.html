@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicaciones Web - IEMMMRP</title>
 
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+
     <link rel="stylesheet" href="style.css">
 </head>
 
@@ -14,7 +16,7 @@
 
 <header class="header" id="header">
     <div class="header-content">
-        <img src="logo.png" class="logo">
+        <img src="logo.png" class="logo" alt="Logo IEMMMRP">
 
         <div class="textos">
             <h1>Institución Educativa Manuel María Mosquera</h1>
@@ -38,11 +40,8 @@
 
     <section class="card reveal">
         <h2>Documento Académico</h2>
-
         <iframe src="info.pdf"></iframe>
-
         <br><br>
-
         <a href="info.pdf" target="_blank" class="btn">
             Visualizar documento completo
         </a>
@@ -50,14 +49,12 @@
 
     <section class="card reveal">
         <h2>Recurso Audiovisual</h2>
-
         <div class="video">
             <iframe 
                 src="https://www.youtube.com/embed/HcWPIgKj2As"
                 allowfullscreen>
             </iframe>
         </div>
-
         <p>
             El recurso audiovisual complementa la información presentada, permitiendo una mejor
             comprensión de los contenidos a través de un formato dinámico e interactivo.
@@ -77,11 +74,13 @@
 </footer>
 
 <script>
+// Efecto del Header al hacer scroll
 window.addEventListener("scroll", () => {
     document.getElementById("header")
     .classList.toggle("shrink", window.scrollY > 50);
 });
 
+// Animación de aparición (reveal) de las tarjetas
 const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
@@ -92,8 +91,10 @@ window.addEventListener("scroll", () => {
     });
 });
 
+// Movimiento de la luz siguiendo al mouse
 document.addEventListener("mousemove", (e) => {
     const luz = document.getElementById("luz");
+    // Centramos la luz restando la mitad de su tamaño (150px)
     luz.style.left = (e.clientX - 150) + "px";
     luz.style.top = (e.clientY - 150) + "px";
 });
