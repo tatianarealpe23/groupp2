@@ -4,14 +4,12 @@
     box-sizing: border-box;
 }
 
-/* FONDO DINÁMICO */
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-family: 'Segoe UI', sans-serif;
     color: white;
     background: linear-gradient(-45deg, #1c3f94, #2e8b57, #f2c300);
     background-size: 400% 400%;
     animation: fondo 12s ease infinite;
-    overflow-x: hidden;
 }
 
 @keyframes fondo {
@@ -20,46 +18,42 @@ body {
     100% {background-position: 0%}
 }
 
-/* EFECTO DE LUZ SEGUIDORA */
 .luz {
     position: fixed;
     width: 300px;
     height: 300px;
     background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
     filter: blur(80px);
-    pointer-events: none; /* Importante para poder hacer clic en lo que hay debajo */
-    z-index: -1; /* Se mantiene detrás del texto */
+    pointer-events: none;
+    z-index: -1;
 }
 
-/* HEADER DINÁMICO */
 .header {
     position: sticky;
     top: 0;
     padding: 15px;
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    transition: 0.4s;
-    z-index: 1000;
+    transition: 0.3s;
+    z-index: 100;
 }
 
 .header.shrink {
-    padding: 8px 15px;
-    background: rgba(0,0,0,0.3);
+    padding: 8px;
+    background: rgba(0,0,0,0.2);
 }
 
 .header-content {
     display: flex;
     align-items: center;
-    gap: 20px;
+    gap: 15px;
     max-width: 1200px;
     margin: 0 auto;
 }
 
 .logo {
     width: 70px;
-    transition: 0.4s;
-    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
+    transition: 0.3s;
 }
 
 .header.shrink .logo {
@@ -67,37 +61,30 @@ body {
 }
 
 .textos h1 {
-    font-size: clamp(16px, 4vw, 22px);
+    font-size: 18px;
 }
 
 .titulo {
     font-size: 14px;
-    opacity: 0.9;
-    font-weight: 300;
+    opacity: 0.8;
 }
 
-/* CONTENEDOR PRINCIPAL */
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px;
 }
 
-/* TARJETAS CON EFECTO GLASSMORFISMO */
 .card {
-    background: rgba(255,255,255,0.1);
+    background: rgba(255,255,255,0.12);
     backdrop-filter: blur(25px);
-    -webkit-backdrop-filter: blur(25px);
-    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    
-    /* Estado inicial para la animación */
-    transform: translateY(50px);
+    padding: 25px;
+    margin-bottom: 25px;
+    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
+    transform: translateY(40px);
     opacity: 0;
-    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
+    transition: 0.6s;
 }
 
 .card.active {
@@ -105,13 +92,6 @@ body {
     opacity: 1;
 }
 
-.card h2 {
-    margin-bottom: 15px;
-    border-left: 4px solid #f2c300;
-    padding-left: 15px;
-}
-
-/* VISUALIZADORES */
 iframe {
     width: 100%;
     height: 500px;
@@ -120,70 +100,39 @@ iframe {
     background: white;
 }
 
-.video {
-    position: relative;
-    overflow: hidden;
-    width: 100%;
-    margin-bottom: 15px;
-}
-
 .video iframe {
-    height: 450px;
+    height: 420px;
 }
 
-/* BOTONES */
+.footer {
+    text-align: center;
+    padding: 40px;
+}
+
 .btn {
     position: relative;
     display: inline-block;
-    padding: 12px 28px;
+    padding: 12px 25px;
     border-radius: 50px;
     color: white;
     text-decoration: none;
     background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
+    backdrop-filter: blur(15px);
     overflow: hidden;
     transition: 0.4s;
-    font-weight: 600;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
 .btn:hover {
-    transform: scale(1.05);
+    transform: scale(1.08);
     background: rgba(255,255,255,0.25);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
 }
 
-/* Brillo animado del botón */
-.btn::before {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
-    top: 0;
-    left: -100%;
-    transition: 0.6s;
-}
-
-.btn:hover::before {
-    left: 100%;
-}
-
-/* FOOTER */
-.footer {
-    text-align: center;
-    padding: 40px 20px;
-    background: rgba(0,0,0,0.2);
-    margin-top: 50px;
-}
-
-/* RESPONSIVE */
 @media (max-width: 768px) {
     .header-content {
         flex-direction: column;
         text-align: center;
     }
-
     iframe, .video iframe {
         height: 300px;
     }
