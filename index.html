@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Publicaciones Web - IEMMMRP</title>
 
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="icon" type="image/x-icon" href="LogoPagina.png">
 
     <link rel="stylesheet" href="style.css">
 </head>
@@ -74,13 +74,11 @@
 </footer>
 
 <script>
-// Efecto del Header al hacer scroll
 window.addEventListener("scroll", () => {
     document.getElementById("header")
     .classList.toggle("shrink", window.scrollY > 50);
 });
 
-// Animación de aparición (reveal) de las tarjetas
 const reveals = document.querySelectorAll(".reveal");
 
 window.addEventListener("scroll", () => {
@@ -91,10 +89,8 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// Movimiento de la luz siguiendo al mouse
 document.addEventListener("mousemove", (e) => {
     const luz = document.getElementById("luz");
-    // Centramos la luz restando la mitad de su tamaño (150px)
     luz.style.left = (e.clientX - 150) + "px";
     luz.style.top = (e.clientY - 150) + "px";
 });
