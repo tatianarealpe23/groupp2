@@ -5,7 +5,7 @@
 }
 
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
     background: linear-gradient(-45deg, #1c3f94, #2e8b57, #f2c300);
     background-size: 400% 400%;
@@ -19,6 +19,7 @@ body {
     100% {background-position: 0%}
 }
 
+/* LUZ SEGUIDORA */
 .luz {
     position: fixed;
     width: 300px;
@@ -29,14 +30,16 @@ body {
     z-index: -1;
 }
 
+/* HEADER */
 .header {
     position: sticky;
     top: 0;
     padding: 15px;
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     transition: 0.4s;
-    z-index: 100;
+    z-index: 1000;
 }
 
 .header.shrink {
@@ -61,15 +64,17 @@ body {
     width: 45px;
 }
 
-.textos h1 { font-size: 18px; }
+.textos h1 { font-size: clamp(16px, 4vw, 20px); }
 .titulo { font-size: 14px; opacity: 0.8; }
 
+/* CONTENEDOR */
 .container {
     max-width: 900px;
     margin: 0 auto;
     padding: 40px 20px;
 }
 
+/* TARJETAS */
 .card {
     background: rgba(255,255,255,0.1);
     backdrop-filter: blur(25px);
@@ -80,7 +85,7 @@ body {
     box-shadow: 0 15px 35px rgba(0,0,0,0.3);
     transform: translateY(40px);
     opacity: 0;
-    transition: 0.8s;
+    transition: 0.8s ease-out;
 }
 
 .card.active {
@@ -88,35 +93,24 @@ body {
     opacity: 1;
 }
 
-/* Estilos específicos para el visor de PDF */
+/* VISOR PDF Y VIDEO */
 .contenedor-pdf {
     width: 100%;
     height: 600px;
     border-radius: 15px;
     overflow: hidden;
-    background: white; /* Fondo blanco para el PDF */
-    border: 2px solid rgba(255,255,255,0.2);
+    background: white;
+    border: 1px solid rgba(255,255,255,0.2);
 }
 
-.error-pdf {
-    color: #333;
-    padding: 40px;
-    text-align: center;
-}
-
-iframe, .video iframe {
+.video iframe {
     width: 100%;
     height: 450px;
     border: none;
     border-radius: 15px;
 }
 
-.footer {
-    text-align: center;
-    padding: 40px;
-    background: rgba(0,0,0,0.2);
-}
-
+/* BOTONES */
 .btn {
     position: relative;
     display: inline-block;
@@ -127,17 +121,26 @@ iframe, .video iframe {
     background: rgba(255,255,255,0.15);
     backdrop-filter: blur(10px);
     border: 1px solid rgba(255,255,255,0.2);
-    overflow: hidden;
-    transition: 0.4s;
     font-weight: bold;
+    transition: 0.4s;
+    text-align: center;
 }
 
 .btn:hover {
     transform: scale(1.05);
     background: rgba(255,255,255,0.25);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+}
+
+/* FOOTER */
+.footer {
+    text-align: center;
+    padding: 50px 20px;
+    background: rgba(0,0,0,0.2);
+    margin-top: 50px;
 }
 
 @media (max-width: 768px) {
     .header-content { flex-direction: column; text-align: center; }
-    .contenedor-pdf, iframe { height: 350px; }
+    .contenedor-pdf, .video iframe { height: 350px; }
 }
