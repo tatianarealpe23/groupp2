@@ -4,14 +4,14 @@
     box-sizing: border-box;
 }
 
-/* FONDO PREMIUM */
+/* FONDO DINÁMICO */
 body {
-    font-family: 'Segoe UI', sans-serif;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     color: white;
-
     background: linear-gradient(-45deg, #1c3f94, #2e8b57, #f2c300);
     background-size: 400% 400%;
     animation: fondo 12s ease infinite;
+    overflow-x: hidden;
 }
 
 @keyframes fondo {
@@ -20,74 +20,84 @@ body {
     100% {background-position: 0%}
 }
 
-/* LUZ */
+/* EFECTO DE LUZ SEGUIDORA */
 .luz {
     position: fixed;
     width: 300px;
     height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,0.25), transparent);
+    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
     filter: blur(80px);
-    pointer-events: none;
+    pointer-events: none; /* Importante para poder hacer clic en lo que hay debajo */
+    z-index: -1; /* Se mantiene detrás del texto */
 }
 
-/* HEADER */
+/* HEADER DINÁMICO */
 .header {
     position: sticky;
     top: 0;
     padding: 15px;
-    background: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(20px);
-    transition: 0.3s;
+    -webkit-backdrop-filter: blur(20px);
+    transition: 0.4s;
+    z-index: 1000;
 }
 
 .header.shrink {
-    padding: 8px;
+    padding: 8px 15px;
+    background: rgba(0,0,0,0.3);
 }
 
-/* HEADER CONTENIDO */
 .header-content {
     display: flex;
     align-items: center;
-    gap: 15px;
+    gap: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .logo {
     width: 70px;
-    transition: 0.3s;
+    transition: 0.4s;
+    filter: drop-shadow(0 0 5px rgba(255,255,255,0.3));
 }
 
 .header.shrink .logo {
     width: 45px;
 }
 
-/* TEXTOS */
 .textos h1 {
-    font-size: 18px;
+    font-size: clamp(16px, 4vw, 22px);
 }
 
 .titulo {
     font-size: 14px;
-    opacity: 0.8;
+    opacity: 0.9;
+    font-weight: 300;
 }
 
-/* CONTENIDO */
+/* CONTENEDOR PRINCIPAL */
 .container {
-    padding: 30px;
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 40px 20px;
 }
 
-/* TARJETAS */
+/* TARJETAS CON EFECTO GLASSMORFISMO */
 .card {
-    background: rgba(255,255,255,0.12);
+    background: rgba(255,255,255,0.1);
     backdrop-filter: blur(25px);
+    -webkit-backdrop-filter: blur(25px);
+    border: 1px solid rgba(255,255,255,0.1);
     border-radius: 20px;
-    padding: 25px;
-    margin-bottom: 25px;
-
-    box-shadow: 0 10px 40px rgba(0,0,0,0.4);
-
-    transform: translateY(40px);
+    padding: 30px;
+    margin-bottom: 30px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
+    
+    /* Estado inicial para la animación */
+    transform: translateY(50px);
     opacity: 0;
-    transition: 0.6s;
+    transition: all 0.8s cubic-bezier(0.2, 1, 0.3, 1);
 }
 
 .card.active {
@@ -95,85 +105,86 @@ body {
     opacity: 1;
 }
 
-/* PDF */
+.card h2 {
+    margin-bottom: 15px;
+    border-left: 4px solid #f2c300;
+    padding-left: 15px;
+}
+
+/* VISUALIZADORES */
 iframe {
     width: 100%;
     height: 500px;
     border: none;
     border-radius: 15px;
+    background: white;
 }
 
-/* VIDEO */
+.video {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
 .video iframe {
-    height: 420px;
+    height: 450px;
+}
+
+/* BOTONES */
+.btn {
+    position: relative;
+    display: inline-block;
+    padding: 12px 28px;
+    border-radius: 50px;
+    color: white;
+    text-decoration: none;
+    background: rgba(255,255,255,0.15);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255,255,255,0.2);
+    overflow: hidden;
+    transition: 0.4s;
+    font-weight: 600;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+    background: rgba(255,255,255,0.25);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+}
+
+/* Brillo animado del botón */
+.btn::before {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255,255,255,0.4), transparent);
+    top: 0;
+    left: -100%;
+    transition: 0.6s;
+}
+
+.btn:hover::before {
+    left: 100%;
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
-    padding: 25px;
-}
-
-/* BOTÓN LIQUID GLASS */
-.btn {
-    position: relative;
-    display: inline-block;
-    padding: 12px 25px;
-    border-radius: 50px;
-
-    color: white;
-    text-decoration: none;
-
-    background: rgba(255,255,255,0.15);
-    backdrop-filter: blur(15px);
-
-    overflow: hidden;
-    transition: 0.4s;
-}
-
-/* EFECTO BRILLO */
-.btn::before {
-    content: "";
-    position: absolute;
-    width: 200%;
-    height: 200%;
-    background: linear-gradient(
-        120deg,
-        transparent,
-        rgba(255,255,255,0.6),
-        transparent
-    );
-    transform: rotate(25deg);
-    top: -100%;
-    left: -100%;
-}
-
-.btn:hover::before {
-    animation: brillo 0.8s;
-}
-
-@keyframes brillo {
-    0% {left: -100%;}
-    100% {left: 100%;}
-}
-
-.btn:hover {
-    transform: scale(1.08);
+    padding: 40px 20px;
+    background: rgba(0,0,0,0.2);
+    margin-top: 50px;
 }
 
 /* RESPONSIVE */
 @media (max-width: 768px) {
-
     .header-content {
         flex-direction: column;
         text-align: center;
     }
 
-    iframe {
+    iframe, .video iframe {
         height: 300px;
-    }
-
-    .video iframe {
-        height: 250px;
     }
 }
