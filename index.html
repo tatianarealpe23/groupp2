@@ -40,8 +40,22 @@
 
     <section class="card reveal">
         <h2>Documento Académico</h2>
-        <iframe src="info.pdf"></iframe>
+        
+        <div class="contenedor-pdf">
+            <object 
+                data="info.pdf" 
+                type="application/pdf" 
+                width="100%" 
+                height="100%">
+                <div class="error-pdf">
+                    <p>Su navegador no puede mostrar el PDF directamente.</p>
+                    <a href="info.pdf" target="_blank" class="btn">Abrir Documento</a>
+                </div>
+            </object>
+        </div>
+
         <br><br>
+
         <a href="info.pdf" target="_blank" class="btn">
             Visualizar documento completo
         </a>
@@ -74,13 +88,14 @@
 </footer>
 
 <script>
+// Manejo del Header al hacer scroll
 window.addEventListener("scroll", () => {
     document.getElementById("header")
     .classList.toggle("shrink", window.scrollY > 50);
 });
 
+// Animación de aparición de tarjetas
 const reveals = document.querySelectorAll(".reveal");
-
 window.addEventListener("scroll", () => {
     reveals.forEach(el => {
         if (el.getBoundingClientRect().top < window.innerHeight - 100) {
@@ -89,6 +104,7 @@ window.addEventListener("scroll", () => {
     });
 });
 
+// Movimiento de la luz con el mouse
 document.addEventListener("mousemove", (e) => {
     const luz = document.getElementById("luz");
     luz.style.left = (e.clientX - 150) + "px";
