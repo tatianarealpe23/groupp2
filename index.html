@@ -6,8 +6,7 @@
     <title>Publicaciones Web - IEMMMRP</title>
 
     <link rel="icon" type="image/x-icon" href="LogoPagina.png">
-
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="estilo.css">
 </head>
 
 <body>
@@ -64,7 +63,7 @@
                 allowfullscreen>
             </iframe>
         </div>
-        <p>
+        <p style="margin-top: 15px;">
             El recurso audiovisual complementa la información presentada, permitiendo una mejor
             comprensión de los contenidos a través de un formato dinámico e interactivo.
         </p>
@@ -98,11 +97,14 @@ window.addEventListener("scroll", () => {
     });
 });
 
-// Movimiento de la luz con el cursor
+// Disparador inicial por si ya están en vista
+window.dispatchEvent(new Event('scroll'));
+
+// Movimiento de la luz ambiental con el cursor
 document.addEventListener("mousemove", (e) => {
     const luz = document.getElementById("luz");
-    luz.style.left = (e.clientX - 150) + "px";
-    luz.style.top = (e.clientY - 150) + "px";
+    luz.style.left = (e.clientX - 175) + "px";
+    luz.style.top = (e.clientY - 175) + "px";
 });
 </script>
 
