@@ -6,45 +6,42 @@
 
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: white;
-    background: linear-gradient(-45deg, #1c3f94, #2e8b57, #f2c300);
-    background-size: 400% 400%;
-    animation: fondo 12s ease infinite;
+    color: #e0e0e0;
+    background-color: #050805;
+    background-image: radial-gradient(circle at 50% 0%, #0d1a12 0%, #050805 70%);
+    background-attachment: fixed;
     overflow-x: hidden;
 }
 
-@keyframes fondo {
-    0% {background-position: 0%}
-    50% {background-position: 100%}
-    100% {background-position: 0%}
-}
-
-/* LUZ SEGUIDORA */
+/* LUZ SEGUIDORA AMBIENTAL (VERDE) */
 .luz {
     position: fixed;
-    width: 300px;
-    height: 300px;
-    background: radial-gradient(circle, rgba(255,255,255,0.2), transparent);
-    filter: blur(80px);
+    width: 350px;
+    height: 350px;
+    background: radial-gradient(circle, rgba(46, 139, 87, 0.15), transparent 70%);
+    filter: blur(90px);
     pointer-events: none;
     z-index: -1;
+    transition: transform 0.1s ease;
 }
 
-/* HEADER */
+/* HEADER ELEGANTE */
 .header {
     position: sticky;
     top: 0;
-    padding: 15px;
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    padding: 15px 20px;
+    background: rgba(5, 8, 5, 0.85);
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+    border-bottom: 1px solid rgba(46, 139, 87, 0.15);
     transition: 0.4s;
     z-index: 1000;
 }
 
 .header.shrink {
-    padding: 10px;
-    background: rgba(0,0,0,0.3);
+    padding: 10px 20px;
+    background: rgba(3, 5, 3, 0.95);
+    border-bottom: 1px solid rgba(46, 139, 87, 0.3);
 }
 
 .header-content {
@@ -56,36 +53,64 @@ body {
 }
 
 .logo {
-    width: 70px;
+    width: 65px;
     transition: 0.4s;
+    filter: drop-shadow(0 0 8px rgba(46, 139, 87, 0.4));
 }
 
 .header.shrink .logo {
-    width: 45px;
+    width: 40px;
 }
 
-.textos h1 { font-size: clamp(16px, 4vw, 20px); }
-.titulo { font-size: 14px; opacity: 0.8; }
+.textos h1 { 
+    font-size: clamp(15px, 3.5vw, 19px); 
+    color: #ffffff;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+}
 
-/* CONTENEDOR */
+.textos h2 {
+    font-size: 14px;
+    color: #2e8b57;
+    font-weight: 500;
+}
+
+.titulo { 
+    font-size: 13px; 
+    color: #8fa89b;
+}
+
+/* CONTENEDOR PRINCIPAL */
 .container {
     max-width: 900px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 50px 20px;
 }
 
-/* TARJETAS */
+/* TARJETAS MINIMALISTAS */
 .card {
-    background: rgba(255,255,255,0.1);
-    backdrop-filter: blur(25px);
-    border: 1px solid rgba(255,255,255,0.1);
-    border-radius: 20px;
-    padding: 30px;
-    margin-bottom: 30px;
-    box-shadow: 0 15px 35px rgba(0,0,0,0.3);
-    transform: translateY(40px);
+    background: rgba(10, 18, 13, 0.6);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(46, 139, 87, 0.2);
+    border-radius: 16px;
+    padding: 35px;
+    margin-bottom: 35px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    transform: translateY(30px);
     opacity: 0;
-    transition: 0.8s ease-out;
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.card h2 {
+    color: #2e8b57;
+    margin-bottom: 20px;
+    font-size: 1.4rem;
+    font-weight: 600;
+}
+
+.card p {
+    line-height: 1.7;
+    color: #b8c5be;
 }
 
 .card.active {
@@ -97,49 +122,64 @@ body {
 .contenedor-pdf {
     width: 100%;
     height: 600px;
-    border-radius: 15px;
+    border-radius: 12px;
     overflow: hidden;
-    background: white;
-    border: 1px solid rgba(255,255,255,0.2);
+    background: #000;
+    border: 1px solid rgba(46, 139, 87, 0.3);
 }
 
 .video iframe {
     width: 100%;
     height: 450px;
     border: none;
-    border-radius: 15px;
+    border-radius: 12px;
 }
 
-/* BOTONES */
+/* BOTONES ELEGANTES */
 .btn {
     position: relative;
     display: inline-block;
     padding: 12px 28px;
-    border-radius: 50px;
-    color: white;
+    border-radius: 30px;
+    color: #ffffff;
     text-decoration: none;
-    background: rgba(255,255,255,0.15);
+    background: rgba(46, 139, 87, 0.15);
     backdrop-filter: blur(10px);
-    border: 1px solid rgba(255,255,255,0.2);
-    font-weight: bold;
-    transition: 0.4s;
+    border: 1px solid rgba(46, 139, 87, 0.4);
+    font-weight: 500;
+    font-size: 14px;
+    transition: all 0.3s ease;
     text-align: center;
+    letter-spacing: 0.5px;
 }
 
 .btn:hover {
-    transform: scale(1.05);
-    background: rgba(255,255,255,0.25);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    transform: translateY(-2px);
+    background: rgba(46, 139, 87, 0.3);
+    border-color: #2e8b57;
+    box-shadow: 0 5px 20px rgba(46, 139, 87, 0.3);
 }
 
 /* FOOTER */
 .footer {
     text-align: center;
-    padding: 50px 20px;
-    background: rgba(0,0,0,0.2);
-    margin-top: 50px;
+    padding: 60px 20px;
+    background: rgba(3, 5, 3, 0.9);
+    border-top: 1px solid rgba(46, 139, 87, 0.15);
+    margin-top: 60px;
+    color: #8fa89b;
+    font-size: 14px;
 }
 
+.footer p {
+    margin-bottom: 8px;
+}
+
+.footer .btn {
+    margin-top: 20px;
+}
+
+/* RESPONSIVE */
 @media (max-width: 768px) {
     .header-content { flex-direction: column; text-align: center; }
     .contenedor-pdf, .video iframe { height: 350px; }
