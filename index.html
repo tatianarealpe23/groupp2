@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Publicaciones Web - IEMMMRP</title>
+
+    <!-- Archivos vinculados según la estructura de tu VS Code -->
+    <link rel="icon" type="image/x-icon" href="logo.png">
+    <link rel="stylesheet" href="css.css">
+    <script src="js.js" defer></script>
+</head>
+
+<body>
+
+    <div class="luz" id="luz"></div>
+
+    <header class="header" id="header">
+        <div class="header-content">
+            <!-- Reemplaza "logo.png" por el nombre exacto de tu imagen -->
+            <img src="logo.png" class="logo" alt="Logo IEMMMRP">
+
+            <div class="textos">
+                <h1>Institución Educativa Manuel María Mosquera</h1>
+                <h2>Sede Educativa</h2>
+                <p class="titulo">Publicaciones Web - Proyecto Académico 2026</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- BANNER DE VIDEO EN BUCLE -->
+    <section class="video-banner">
+        <!-- Reemplaza "banner.mp4" por el nombre de tu archivo de video -->
+        <video autoplay muted loop playsinline class="banner-video">
+            <source src="banner.mp4" type="video/mp4">
+        </video>
+        <div class="banner-overlay">
+            <div class="banner-text">
+                <h2>SEDE VARONES / MERCED</h2>
+                <p>Formando líderes con identidad ancestral</p>
+            </div>
+        </div>
+    </section>
+
+    <main class="container">
+
+        <section class="card reveal">
+            <h2>Presentación del Proyecto</h2>
+            <p>
+                El presente entorno digital ha sido desarrollado como parte del proceso formativo,
+                integrando conocimientos en desarrollo web mediante HTML y CSS. Este espacio busca
+                fortalecer las competencias tecnológicas, promoviendo la comunicación, el acceso a la
+                información y el uso responsable de herramientas digitales en el contexto educativo.
+            </p>
+        </section>
+
+        <section class="card reveal">
+            <h2>Documento Académico</h2>
+
+            <div class="contenedor-pdf">
+                <iframe
+                    src="https://docs.google.com/viewer?url=https://tatianarealpe23.github.io/groupp2/info.pdf&embedded=true"
+                    style="width:100%; height:100%;" frameborder="0">
+                </iframe>
+            </div>
+
+            <br><br>
+
+            <!-- Reemplaza "info.pdf" si tu archivo PDF se llama diferente -->
+            <a href="info.pdf" target="_blank" class="btn">
+                Visualizar documento en pantalla completa
+            </a>
+        </section>
+
+        <section class="card reveal">
+            <h2>Recurso Audiovisual</h2>
+            <div class="video">
+                <iframe src="https://www.youtube.com/embed/HcWPIgKj2As" title="YouTube video player" frameborder="0"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <p style="margin-top: 15px;">
+                El recurso audiovisual complementa la información presentada, permitiendo una mejor
+                comprensión de los contenidos a través de un formato dinámico e interactivo.
+            </p>
+        </section>
+
+    </main>
+
+    <footer class="footer">
+        <p>Elaborado por estudiantes - Grado 11</p>
+        <p>Institución Educativa Manuel María Mosquera</p>
+        <p>Año 2026</p>
+
+        <a href="https://iemmmrip.edu.co/index.php" class="btn">
+            Volver a la página principal
+        </a>
+    </footer>
+
+</body>
+
+</html>
